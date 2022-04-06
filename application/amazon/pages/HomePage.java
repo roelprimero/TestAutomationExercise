@@ -55,7 +55,6 @@ public class HomePage extends WebDriverManager {
     }
 
     public void click_all() throws InterruptedException {
-
         searchNav.click();
         Thread.sleep(2000);
     }
