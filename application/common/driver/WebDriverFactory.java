@@ -12,9 +12,6 @@ public class WebDriverFactory {
         ChromeOptions chromeOptions = new ChromeOptions();
         WebDriverManager.chromedriver().setup();
         chromeOptions.addArguments("start-maximized");
-        //chromeOptions.addArguments("headless");
-        //chromeOptions.addArguments("disable-gpu");
-        //chromeOptions.addArguments("window-size=1200,1100");
         return new ChromeDriver(chromeOptions);
     }
 }

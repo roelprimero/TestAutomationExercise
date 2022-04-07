@@ -8,12 +8,6 @@ import amazon.pages.*;
 
 public class Exercise2Steps {
 
-    @Given("Fuck this shit")
-    public void fuck_this_shit() {
-        HomePage homePage = new HomePage();
-        homePage.verify_home_page();
-    }
-
     @Given("User is in Amazon's homepage")
     public void user_is_in_amazon_s_homepage() {
         HomePage homePage = new HomePage();

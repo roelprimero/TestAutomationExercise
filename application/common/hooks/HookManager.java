@@ -47,6 +47,7 @@ public class HookManager {
         }
         else if (scenario.getUri().toString().contains("api"))
         {
+            //Un-used
             //Initialize API Setup
             System.out.println("Initializing API Setup");
         }

@@ -10,7 +10,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import screenshot.ScreenShotTaker;
 import ui.webdrivermanager.WebDriverManager;
-
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -56,7 +55,7 @@ public class HomePage extends WebDriverManager
             }
 
         } catch (Exception e) {
-            // Do nothing
+            // Do nothing for now
         }
 
         Assert.assertTrue("Home Page is not Loaded",
@@ -103,9 +102,12 @@ public class HomePage extends WebDriverManager
     public void close_recently_opened_tab() throws InterruptedException
     {
         ArrayList<String> tabs= new ArrayList<String> (driver.getWindowHandles());
-        Thread.sleep(2000); // pause for observation
-        driver.switchTo().window(tabs.get(1)); //go to recently opened tab
-        Thread.sleep(2000); // Add sleep to verify if new tab is opened
+        // pause for observation
+        Thread.sleep(2000);
+        // go to recently opened tab
+        driver.switchTo().window(tabs.get(1));
+        // Add sleep to verify if new tab is opened
+        Thread.sleep(2000);
         driver.close();
         driver.switchTo().window(tabs.get(0));
     }
@@ -114,7 +116,8 @@ public class HomePage extends WebDriverManager
         ArrayList<String> tabs= new ArrayList<String> (driver.getWindowHandles());
         driver.switchTo().window(tabs.get(0));
         Thread.sleep(2000);
-        //((JavascriptExecutor) driver).executeScript("window.scrollBy(0,-250)"); //Not working so will use Keys instead
+        //((JavascriptExecutor) driver).executeScript("window.scrollBy(0,-250)");
+        // js execution is not working for some reason so will use Keys action instead
         Actions action = new Actions(driver);
         action.sendKeys(Keys.chord(Keys.CONTROL,Keys.HOME)).perform();
         Thread.sleep(2000);
@@ -125,5 +128,4 @@ public class HomePage extends WebDriverManager
         ScreenShotTaker screenShotTaker = new ScreenShotTaker();
         screenShotTaker.takeScreenShot(driver, "KnowIt_HomePage");
     }
-
 }
